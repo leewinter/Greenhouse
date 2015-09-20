@@ -1,0 +1,90 @@
+<!-- ######################## Section ######################## -->
+<section class="section_light" ng-cloak>
+  <div class="row">
+    <!-- ######################## Popup Panel ######################## -->
+    <div id="myModal" class="reveal-modal" data-options="close_on_background_click:false" data-reveal>
+      <h2>Edit Pin</h2>
+      <div ng-show="currentEditPin.currentEvents">
+        <h3>Currently configured events:-</h3>
+        <ul ng-repeat="event in currentEditPin.currentEvents">
+          <li>
+            <span>{{event.schedule | date:'H:mm'}} ({{event.name}})</span>
+            <button class="tiny button warning round" ng-click="removeEvent(event)">Remove</button>
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <div>
+        <h3>Add a New Event</h3>
+        <form data-abide="ajax" role="form">
+          <!-- ######################## Event Name ######################## -->
+          <div class="large-6 columns">
+            <input type="text" ng-model="newEvent.name" placeholder="name" required />
+            <small class="error">Name is required</small>
+          </div>
+          <!-- ######################## Event Schedule ######################## -->
+          <div class="large-6 columns">
+            <input type="time" name="timepicker" ng-model='newEvent.schedule' placeholder="scheduled time" class="time_element" required />
+            <small class="error">Schheduled time is required</small>
+          </div>
+          <!-- ######################## Pin Options ######################## -->
+          <div class="large-6 columns">
+            <label ng-repeat="option in eventOptions">
+              <input type="radio" name="eventType" ng-model="newEvent.type" ng-value="option.eventName" ng-click="setEventConfiguration(option)" required>{{option.eventName}}
+              <br>
+            </label>
+          </div>
+          <!-- ######################## Write Options ######################## -->
+          <div class="large-6 columns" ng-show="newEvent.type == 'Write'">
+            <label>
+              <input type="radio" name="eventWriteValue" ng-model="newEvent.typeConfig" value="on">On
+              <br>
+            </label>
+            <label>
+              <input type="radio" name="eventWriteValue" ng-model="newEvent.typeConfig" value="off">Off
+              <br>
+            </label>
+          </div>
+          <!-- ######################## Read Options ######################## -->
+          <div class="large-6 columns" ng-show="newEvent.type == 'Read'">
+            Need radio list to show available read devices (e.g. thermometer). Best data driven so modules can drive options.
+          </div>
+          <div class="large-12 columns">
+            <button ng-click="addEventToPin(currentEditPin)" type="submit" ng-hide="currentEditPin.reserved">Add Event</button>
+            <div ng-show="currentEditPin.reserved">Pin is reserved</div>
+          </div>
+        </form>
+      </div>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <!-- ######################## Section ######################## -->
+    <section class="section_light">
+      <div class="row">
+        <div class="large-3 columns">
+            <select ng-model="selectedMicroControllerType" ng-options="option.value as option.name for option in microControllerTypes" ng-change="loadMicroController()">
+              <option value="" disabled>Choose a Micro-Controller</option>
+            </select>
+        </div>
+      </div>
+    </section>
+    <!-- ######################## Pin Repeater ######################## -->
+    <div class="large-4 medium-6 small-12 columns" ng-repeat="pin in microController.pins">
+      <div class="pin-container panel blue radius">
+        <span class="info label round radius">{{pin.pin}}</span>
+        <div class="right">
+          <span ng-hide="pin.isGpio">({{pin.description}})</span>
+          <button class="tiny round" ng-class="hasEvents(pin)" ng-show="pin.isGpio" ng-click="editPin(pin)" data-reveal-id="myModal">{{pin.description}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ######################## Section ######################## -->
+<section class="section_dark">
+  <div class="row">
+    <p>This is the partial for Settings</p>
+    {{test}}
+  </div>
+</section>

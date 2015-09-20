@@ -1,0 +1,143 @@
+/**************************************************************************************/
+/*----------------------------------- LigaTure Symbols ------------------------------*/
+/************************************************************************************/
+
+/* CSS */
+
+@font-face {
+    font-family: 'LigatureSymbols';
+    src: url('LigatureSymbols-2.05.eot');
+    src: url('LigatureSymbols-2.05.eot?#iefix') format('embedded-opentype'),
+         url('LigatureSymbols-2.05.woff') format('woff'),
+         url('LigatureSymbols-2.05.ttf') format('truetype'),
+         url('LigatureSymbols-2.05.svg#LigatureSymbols') format('svg');
+    src: url('LigatureSymbols-2.05.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {background: #fafafa}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #999;
+    border-image: none;
+    border-style: dotted;
+    border-width: 1px 0 0;
+    clear: both;
+    height: 0;
+    margin: 22px 0 21px;
+}
+
+.page_wrap {margin: 0 auto 25px}
+
+header {background: #f3f3f3; clear:both; padding: 20px 0 40px}
+
+p {color: #333}
+.welcome_text {font-size: 32px; margin-bottom: 0; text-align:center; font-weight: normal; font-family:Georgia, "Times New Roman", Times, serif; font-style:italic}
+.excerpt {font-size: 24px; margin-bottom: 0; font-weight: normal; font-family:Georgia, "Times New Roman", Times, serif; font-style:italic}
+
+h1,h2,h3,h4 {font-family:'Open Sans Condensed',sans-serif; font-weight: normal; color: #333; margin: 20px 0}
+
+/* sections */
+.section_light {background: #FFF; border-top: 1px dotted #999; border-bottom: 1px dotted #999; padding: 20px 0; clear:both}
+.section_light h1 {text-align: center; border-bottom: 1px dotted #999; padding-bottom: 20px; margin: 0 0 20px 0}
+
+.section_dark {background: #262626; border-top: 0; border-bottom: 1px dotted #999; padding: 20px 0 40px}
+.section_dark h2 {color: #999999; margin: 0 0 20px 0; font-size: 22px; text-align: center}
+
+.section_main {padding: 20px 0}
+.section_main h2 {padding: 0 0 20px}
+
+/* END Frontpage sections */
+
+.panel {}
+
+.panel.callout {background: #FE563B; border: 1px solid #CCC}
+
+.panel.callout p, .panel.callout h4 {color: #fff}
+
+/* gallery menu */
+
+.footer {text-align:center; padding: 50px 0}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* Masonry
+/*-------------------------------------------------------------------------------------------------*/
+
+.centered { margin: 0 auto; }
+
+.box {
+  margin: 5px;
+  padding: 10px;
+  background: #fff;
+  border: 0;
+  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  font-size: 100%;
+  line-height: 1.4em;
+  float: left;
+}
+
+.box p {font-size: 12px; margin: 0; padding: 12px 0}
+
+.box h2 {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.box h4 {
+  margin-bottom: 0; font-size: 14px; font-family:Georgia, "Times New Roman", Times, serif; padding: 0px;
+}
+
+.box img,
+#tumblelog img {
+  display: block;
+  width: 100%;
+}
+
+/*-------------------------------------------- Animations --------------------------------------------*/
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+	opacity:0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+
+	-webkit-animation-duration:0.5s;
+	-moz-animation-duration:0.5s;
+	animation-duration:0.5s;
+}
+
+.fade-in.one {
+-webkit-animation-delay: 0.1s;
+-moz-animation-delay: 0.1s;
+animation-delay: 0.1s;
+}
+
+.fade-in.two {
+-webkit-animation-delay: 0.6s;
+-moz-animation-delay:0.6s;
+animation-delay: 0.6s;
+}
+
+.fade-in.three {
+-webkit-animation-delay: 1.6s;
+-moz-animation-delay: 1.6s;
+animation-delay: 1.6s;
+}
+
+/*-------------------------------------------------- settings page --------------------------------------------------*/
+.pin-container {
+  min-height:70px;
+}

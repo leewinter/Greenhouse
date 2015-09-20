@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+  <title>test</title>
+
+  <link rel="stylesheet" href="/foundation-sites/css/foundation.min.css" defer>
+  <link rel="stylesheet" href="/assets/css/main.css" defer>
+  <link rel="stylesheet" href="/assets/css/vendor/jquery-clockpicker.min.css">
+
+  <!-- Vendor scripts -->
+  <script type="text/javascript" src="/assets/js/vendor/jquery.js" defer></script>
+  <script type="text/javascript" src="/angular/angular.js" defer></script>
+  <script type="text/javascript" src="/angular-route/angular-route.min.js" defer></script>
+  <script type="text/javascript" src="/foundation-sites/js/foundation.min.js" defer></script>
+  <script type="text/javascript" src="/assets/js/vendor/jquery-clockpicker.min.js" defer></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.slider.min.js" defer></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+  <!-- Views -->
+  <script type="text/javascript" src="/views/index.js" defer></script>
+  <script type="text/javascript" src="/views/dashboard/dashboard.js" defer></script>
+  <script type="text/javascript" src="/views/settings/settings.js" defer></script>
+  <script type="text/javascript" src="/views/camera/camera.js" defer></script>
+
+  <!-- Factories -->
+  <script type="text/javascript" src="/scripts/common/factories/microControllerFactory.js" defer></script>
+  <script type="text/javascript" src="/scripts/common/factories/pinFactory.js" defer></script>
+
+  <!-- Services -->
+  <script type="text/javascript" src="/scripts/common/services/socketIo.js" defer></script>
+
+</head>
+
+<body class="large-12 columns" ng-controller="IndexCtrl">
+
+
+  <!-- ######################## Main Menu ######################## -->
+  <nav class="top-bar" data-topbar ng-cloak>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#/dashboard">Dashboard</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon">
+        <a href="#">
+          <span>Menu</span>
+        </a>
+      </li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+        <li><a href="#/camera">Camera</a></li>
+        <li><a href="#/settings">Settings</a></li>
+      </ul>
+    </section>
+  </nav>
+
+  <!-- ######################## Main Content ######################## -->
+  <div ng-view class="fade-in one"></div>
+
+  <!-- ######################## Footer ######################## -->
+  <footer class="footer" ng-cloak>
+    Footer
+  </footer>
+
+</body>
+
+</html>
