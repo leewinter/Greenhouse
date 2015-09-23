@@ -18,12 +18,12 @@
         <h3>Add a New Event</h3>
         <form data-abide="ajax" role="form">
           <!-- ######################## Event Name ######################## -->
-          <div class="large-6 columns">
+          <div class="large-6 columns" ng-hide="newEvent.type == 'Camera'">
             <input type="text" ng-model="newEvent.name" placeholder="name" required />
             <small class="error">Name is required</small>
           </div>
           <!-- ######################## Event Schedule ######################## -->
-          <div class="large-6 columns">
+          <div class="large-6 columns" ng-hide="newEvent.type == 'Camera'">
             <input type="time" name="timepicker" ng-model='newEvent.schedule' placeholder="scheduled time" class="time_element" required />
             <small class="error">Schheduled time is required</small>
           </div>
@@ -48,6 +48,17 @@
           <!-- ######################## Read Options ######################## -->
           <div class="large-6 columns" ng-show="newEvent.type == 'Read'">
             Need radio list to show available read devices (e.g. thermometer). Best data driven so modules can drive options.
+          </div>
+          <!-- ######################## Camera Options ######################## -->
+          <div class="large-6 columns" ng-show="newEvent.type == 'Camera'">
+            <label>
+              <input type="radio" name="eventWriteValue" ng-model="newEvent.typeConfig" value="x-axis">X-Axis
+              <br>
+            </label>
+            <label>
+              <input type="radio" name="eventWriteValue" ng-model="newEvent.typeConfig" value="y-axis">Y-Axis
+              <br>
+            </label>
           </div>
           <div class="large-12 columns">
             <button ng-click="addEventToPin(currentEditPin)" type="submit" ng-hide="currentEditPin.reserved">Add Event</button>
