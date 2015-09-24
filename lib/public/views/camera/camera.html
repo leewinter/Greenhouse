@@ -20,6 +20,22 @@
       </div>
     </div>
 
+    <div class="large-12 columns">
+      <table>
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="row in gridRows">
+            <td ng-repeat="column in gridRows">
+              Row:{{row.row}} Column:{{row.column}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <!-- ######################## Horizontal Slider ######################## -->
     <div class="large-11 columns">
       <div class="small-10 medium-11 columns">
