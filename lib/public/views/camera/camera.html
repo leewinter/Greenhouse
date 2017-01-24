@@ -8,45 +8,20 @@
 
   <div class="row">
 
-    <!-- ######################## Vertical Slider ######################## -->
-    <div class="large-1 columns">
-      <div id="verticalSlider" class="range-slider vertical-range" data-slider data-options="vertical: true; display_selector: #verticalOutput;">
-        <span class="range-slider-handle" role="slider" tabindex="0"></span>
-        <span class="range-slider-active-segment"></span>
-        <input type="hidden" ng-model="verticalAxis" ng-change="someEvent()">
-      </div>
-      <div class="columns">
-        <span id="verticalOutput"></span>
-      </div>
-    </div>
-
     <div class="large-12 columns">
-      <table>
+      <table id="viewGrid" border="0" cellpadding="0" cellspacing="0" width="100%">
         <thead>
           <tr>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="row in gridRows">
-            <td ng-repeat="column in gridRows">
-              Row:{{row.row}} Column:{{row.column}}
+            <td ng-repeat="column in row.columns" ng-mouseover="goToGrid(row.row, column.column)" style="padding:2px;">
+
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-
-    <!-- ######################## Horizontal Slider ######################## -->
-    <div class="large-11 columns">
-      <div class="small-10 medium-11 columns">
-        <div id="horizontalSlider" class="range-slider" data-slider data-options="display_selector: #horizontalOutput;">
-          <span class="range-slider-handle" role="slider" tabindex="0"></span>
-          <span class="range-slider-active-segment"></span>
-        </div>
-      </div>
-      <div class="small-2 medium-1 columns">
-        <span id="horizontalOutput"></span>
-      </div>
     </div>
 
   </div>
